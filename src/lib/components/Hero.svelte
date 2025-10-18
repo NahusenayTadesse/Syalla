@@ -12,9 +12,9 @@
 </script>
 
 
-<section class="h-screen w-screen flex flex-row gap-6 justify-center items-center">
+<section class="h-screen w-full flex flex-row gap-6 justify-center items-center">
  
-     <div class="w-[48%] flex flex-col gap-4">
+     <div class="w-[50%] flex flex-col gap-4">
         <div class="w-[300px]"><Tags {content} /></div>
         
 
@@ -41,7 +41,7 @@
      </div>
 
 
-     <div class="w-[40%] flex flex-row gap-0  justify-center items-center relative">
+     <div class="w-[50%] flex flex-row gap-0  justify-center items-center relative">
 
         <img src="/images/left.png" alt="Server Photos" class="bounce bounce-left absolute left-0.5" >
         <img src="/images/right.png" alt="Server Photos" class="bounce bounce-right absolute right-0.5" >

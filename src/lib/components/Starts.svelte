@@ -1,0 +1,23 @@
+<script lang="ts">
+	import Tags from "./Tags.svelte";
+          import { Button } from "$lib/components/ui/button/index.js";
+          import { ArrowRight } from '@lucide/svelte'
+
+
+    let { title, content, para, btn = false, btnName='', href='' }: {title: string, content:string, para:string, btn:boolean, btnName:string, href:string } = $props()
+
+    
+</script>
+
+
+<div class="flex flex-col gap-4">
+<div class="max-w-auto">
+     <Tags {content} />
+</div>
+  <h2>{title}</h2>
+  <p class="text-gray-1 w-md">{para}</p>
+ {#if btn} 
+  
+   <Button {href} class="bg-white text-black w-xs">{btnName} <ArrowRight /></Button>
+ {/if}
+</div>
