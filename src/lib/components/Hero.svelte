@@ -12,9 +12,10 @@
 </script>
 
 
-<section class="h-screen w-full flex flex-row gap-6 justify-center items-center">
+<section class="h-screen w-full flex flex-row gap-6 justify-center items-center 
+ ">
  
-     <div class="w-[50%] flex flex-col gap-4">
+     <div class="w-[50%] flex flex-col gap-4 ">
         <div class="w-[300px]"><Tags {content} /></div>
         
 
@@ -53,6 +54,8 @@
 </section>
 
 <style>
+
+
     .bounce {
  
   animation-duration: 2s;

@@ -194,7 +194,6 @@ p{
   font-weight: var(--fw-body);
   font-size: 16px; /* ~16px → 18px */
   line-height: var(--leading-body);
-  margin: 0 0 1rem 0;
 }
 
 /* Small utility classes */

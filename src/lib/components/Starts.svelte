@@ -15,7 +15,7 @@
      <Tags {content} />
 </div>
   <h2>{title}</h2>
-  <p class="text-gray-1 w-md">{para}</p>
+  <p class="text-gray-1 w-1/2">{para}</p>
  {#if btn} 
   
    <Button {href} class="bg-white text-black w-xs">{btnName} <ArrowRight /></Button>
