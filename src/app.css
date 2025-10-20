@@ -219,6 +219,40 @@ article, main, .content{
   padding: 1rem;
 }
 
+ .bounce {
+ 
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.bounce-left {
+  animation-name: bounce-left;
+}
+
+.bounce-right {
+  animation-name: bounce-right;
+}
+
+/* Left image bounces up while right image goes down */
+@keyframes bounce-left {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes bounce-right {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(40px);
+  }
+}
+
 
 
 

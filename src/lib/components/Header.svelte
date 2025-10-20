@@ -4,7 +4,7 @@
 
    let pages = [
     { name: 'Inference', href: '/inference'},
-    { name: 'Colocation', href: '/colocatione'},
+    { name: 'Colocation', href: '/colocation'},
     { name: 'Pricing', href: '/Pricing'},
    ]
 </script>
@@ -24,7 +24,7 @@
      
 
         <Button variant="outline" class="{btn} {glass} text-gray-1">
-Explore Colocation            
+Explore Colocation       
 </Button>
 
   <Button class={btn}>

@@ -5,7 +5,7 @@
     let { call, title, btn1, btn2, href1, href2, para }: {call: string, title:string, btn1:string, btn2:string, href1:string, href2:string, para:string } = $props()
 
 </script>
-<section class="w-screen p-8 flex flex-col gap-4 justify-center items-center
+<section class="w-screen p-8 py-16 flex flex-col gap-4 justify-center items-center
 isolate  ring-white/5 ring-1 bg-opacity-white-10 bg-white/0 shadow-sm shadow-white/20
           backdrop-blur-lg bg-cover bg-[url(/images/light5.png)] bg-center
 ">
