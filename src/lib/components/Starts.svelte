@@ -11,11 +11,11 @@
 
 
 <div class="flex flex-col gap-4">
-<div class="max-w-auto">
+<div class="lg:max-w-auto w-full">
      <Tags {content} />
 </div>
   <h2>{title}</h2>
-  <p class="text-gray-1 w-1/2">{para}</p>
+  <p class="text-gray-1 lg:w-1/2 w-full">{para}</p>
  {#if btn} 
   
    <Button {href} class="bg-white text-black w-xs">{btnName} <ArrowRight /></Button>

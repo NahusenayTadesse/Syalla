@@ -4,7 +4,7 @@
 	import Iaas from "$lib/components/Iaas.svelte";
     import Services from "$lib/components/Services.svelte";
 </script>
-<div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative">
+<div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative w-full">
 <img src="/images/light5.png" alt="" class="absolute left-0 top-0 -z-1">
 <Hero />
 <Services />

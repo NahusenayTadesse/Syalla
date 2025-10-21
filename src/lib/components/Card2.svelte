@@ -4,9 +4,9 @@
     let { title, content, image }: {title: string, content: string, image: string} = $props();
 </script>
 
-<div class="{glass} h-full rounded-[16px] flex flex-col gap-8 justify-center p-8 items-center">
+<div class="{glass} w-full h-full rounded-[16px] flex flex-col gap-8 justify-center p-8 items-center">
 <img src={image} alt="Card Illustration" >
 
   <h6>{title}</h6>
-  <p class="text-gray-1 w-sm text-center">{content}</p>
+  <p class="text-gray-1 lg:w-sm w-full text-center">{content}</p>
 </div>

@@ -20,10 +20,10 @@
 
 <div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative">
 
-<section class="h-screen w-full flex flex-row gap-6 justify-center items-center 
+<section class="lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse gap-6 justify-center items-center 
  ">
  
-     <div class="w-[50%] flex flex-col gap-4 ">
+     <div class="lg:w-[50%] w-full flex flex-col gap-4 lg:pt-0 pt-48 z-10">
         <div class="w-[300px]"><Tags {content} /></div>
         
 
@@ -48,10 +48,12 @@ Request a quote            </Button>
      </div>
 
 
-     <div class="w-[50%] flex flex-row gap-0  justify-center items-center relative">
+       <div class="lg:w-[50%] w-full lg:h-auto h-auto lg:mb-0 flex flex-row gap-0 justify-center items-center relative">
 
-        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-left absolute left-0.5" >
-        <img src="/images/gpu1.png" alt="Server Photos" class="bounce bounce-right absolute right-0.5" >
+        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-left absolute left-0.5 lg:block hidden" >
+        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-right absolute right-0.5 lg:block hidden" >
+         <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-left w-56 absolute left-1/4 top-2/3 lg:hidden block" >
+        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-right w-56 absolute right-1/3 top-2/3 lg:hidden block" >
 
      </div>
 
@@ -69,7 +71,7 @@ flexibility and visibility modern AI teams need.'
      />
   </div>
 
-   <div class="grid grid-cols-3 gap-4 w-full">
+   <div class="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full">
      <Card title='AI-Optimized Infrastructure'
      content='Designed for high-density GPU workloads with up to 80kW racks and N/2N power redundancy.'
     image='/images/Illustration17.png'
@@ -93,8 +95,8 @@ ensuring reliability, uptime, and predictable performance at scale.'
      />
   </div>
 
-  <div class="grid grid-cols-3 gap-4 w-full">
-    <div class="col-span-2 w-full p-0">
+  <div class="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full">
+    <div class="lg:col-span-2 w-full p-0">
      <Card2 title='Power & Network Redundancy'
      content='Multi-fiber cross-connects and N/2N power systems ensure 
 stable, high-throughput performance without downtime.'
@@ -108,7 +110,7 @@ stable, high-throughput performance without downtime.'
      content='Stay in control with smart power metering, temperature tracking, and on-demand remote assistance.'
     image='/images/Illustration22.png'
      />  
-     <div class="col-span-2 p-0">     
+     <div class="lg:col-span-2 p-0">     
      <Card2 title='Predictable Costs'
      content='Fixed monthly rates per kW, rack, or GPU so you always know exactly what you’re paying for.'
     image='/images/Illustration23.png'

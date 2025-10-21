@@ -181,7 +181,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /* Heading scale */
-h1{ font-size: 76px; }   /* ~32px → 64px */
+h1{ font-size: 75px; }   
 h2{ font-size: 49px; font-weight: 400; }  /* ~28px → 48px */
 h3{ font-size: 39px; } /* ~22px → 36px */
 h4{ font-size: clamp(1.125rem, 0.95rem + 1.6vw, 1.75rem); } /* ~18px → 28px */
@@ -203,15 +203,42 @@ p{
   margin-bottom: 1rem;
 }
 
-/* Accessibility: Increase hit area and readability on small screens */
+/* Mobile typography: optimized sizes for small screens */
+@media (max-width: 768px) {
+  :root { --heading-margin-bot: 0.45rem; }
+
+  h1 { font-size: 60px; }
+  h2 { font-size: clamp(1.5rem, 5.2vw, 2.75rem); }
+  h3 { font-size: clamp(1.25rem, 4.1vw, 2rem); }
+  h4 { font-size: clamp(1.125rem, 3.4vw, 1.5rem); }
+  h5 { font-size: clamp(1rem, 3vw, 1.25rem); }
+  h6 { font-size: clamp(0.95rem, 2.6vw, 1.125rem); }
+
+  p  { font-size: 24px; }
+}
+
+/* Extra-small phones */
+@media (max-width: 420px) {
+  :root { --heading-margin-bot: 0.4rem; }
+
+  h1 { font-size: 60px; }
+  h2 { font-size: clamp(1.375rem, 7.2vw, 2.1rem); }
+  h3 { font-size: clamp(1.125rem, 6vw, 1.6rem); }
+  h4 { font-size: clamp(1rem, 5.2vw, 1.25rem); }
+  h5 { font-size: clamp(0.95rem, 4.6vw, 1.1rem); }
+  h6 { font-size: clamp(0.9rem, 4vw, 1rem); }
+
+  p  { font-size: 20px; }
+}
+
+
 @media (max-width: 360px){
   :root{ --heading-margin-bot: 0.4rem; }
-  h1{ font-size: clamp(1.75rem, 1.6rem + 3.0vw, 3.25rem); }
+  h1{ font-size: 39px; }
   h2{ font-size: clamp(1.5rem, 1.3rem + 2.5vw, 2.5rem); }
   p{ font-size: clamp(0.95rem, 0.95rem + 0.12vw, 1.05rem); }
 }
 
-/* Optional: consistent spacing for article content */
 article, main, .content{
   max-width: 70ch;
   margin-left: auto;
@@ -234,7 +261,6 @@ article, main, .content{
   animation-name: bounce-right;
 }
 
-/* Left image bounces up while right image goes down */
 @keyframes bounce-left {
   0%, 100% {
     transform: translateY(0);

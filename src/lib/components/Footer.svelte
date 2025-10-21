@@ -22,7 +22,7 @@
 
 
 {#snippet footer(title='', links = [{name: '', href: ''}])}
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 w-full">
          <p class="font-bold">{title}</p>
 
          {#each links as link}
@@ -36,8 +36,8 @@
 
 
 
-<footer class="flex flex-col gap-4 justify-center items-center px-[10%] mt-8">
-        <div class="grid grid-cols-4 w-full place-items-center items-start p-8 py-16 px-0">
+<footer class="flex flex-col gap-4 justify-center items-center lg:px-[10%] px-4 mt-8 w-full">
+        <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 w-full place-items-center items-start p-8 py-16 px-0">
 
             <div class="flex flex-col gap-4">
                 <h4 class="text-primary">Syaala LLC</h4>
@@ -52,7 +52,7 @@
 
         </div>
 
-            <div class="flex flex-row justify-between w-full">
+            <div class="flex lg:flex-row flex-col  lg:justify-between justify-center w-full">
                 <p class="text-gray-1">
                     ©{year} Syaala LLC. Memphis, TN.
                 </p>

@@ -63,7 +63,7 @@
 {/snippet}
 
 
-<section class="grid grid-cols-3 gap-4">
+<section class="grid lg:grid-cols-3 grid-cols-1 gap-4">
 
     {@render pricing('Starter',
      'Perfect for testing and small projects. Ideal for developers and small teams.',

@@ -20,14 +20,14 @@ let btn2=false;
     
 </script>
 
-<section class="flex flex-col gap-32">
+<section class="flex flex-col gap-32 w-full h-auto">
        <section class="w-full flex flex-col gap-8">
 
 
 <Starts title="Deploy AI Models Instantly" {content} {para}  {btn} btnName='Deploy Your First Model' href='' />
 
-<div class="grid grid-cols-3 gap-4">
-    <div class="col-span-2">
+<div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
+    <div class="lg:col-span-2">
     <Card2 title="One-Click Templates" content="Launch pre-configured models like Llama, Whisper, or Stable Diffusion in seconds." image='/images/Illustration4.png' />
     </div>
     <Card2 title="Lease Reserved GPUs" content="Access enterprise-grade GPUs (A100, H100, L40) in pre-configured racks." image='/images/Illustration5.png' />
@@ -42,12 +42,12 @@ let btn2=false;
 
 <Starts title="Host or Lease GPUs in Syaala Data Centers" content='Colocation & Reserved GPU'  para={para2}  {btn} btnName='Explore Colocation' href='' />
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid lg:grid-cols-2 grid-cols-1   gap-4">
    
     <Card2 title="Bring Your Own Hardware (BYOH)" content="Ship your servers to our facilities we’ll rack, power, and connect them for you." image='/images/Illustration9.png' />
     <Card2 title="Lease Reserved GPUs" content="Access enterprise-grade GPUs (A100, H100, L40) in pre-configured racks." image='/images/Illustration10.png' />
 </div>
-<div class="grid grid-cols-3 gap-4 p-0">
+<div class="grid lg:grid-cols-3 grid-cols-1 gap-4 p-0">
 
         <Card2 title="AI-Optimized Infrastructure" content="Built for high-density GPU workloads with advanced cooling and redundant power." image='/images/Illustration11.png' />
 
@@ -69,7 +69,7 @@ let btn2=false;
 
 <Starts title="Built for Every AI Team" content="Who It’s For" para={para3}  btn={btn2} btnName='' href='' />
 
-<div class="grid grid-cols-3 gap-4">
+<div class="grid lg:grid-cols-3 grid-cols-1 gap-4 w-full align-middle px-4">
    
     <Card title="AI Startups" content="Ship APIs and launch inference products fast without managing infrastructure." image='/images/Illustration14.png' />
     <Card title="Enterprises" content="Host sensitive workloads in secure, isolated environments with full visibility." image='/images/Illustration15.png' />

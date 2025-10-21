@@ -9,21 +9,21 @@
 isolate  ring-white/5 ring-1 bg-opacity-white-10 bg-white/0 shadow-sm shadow-white/20
           backdrop-blur-lg bg-cover bg-[url(/images/light5.png)] bg-center
 ">
-    <p>
+    <p class="">
         {call}
     </p>
-    <h2 class="text-center">{@html title}</h2>
-    <div class="flex flex-row gap-2 justify-center items-center">
-        <Button href={href1} class={btn}>
+    <h2 class="lg:text-center text-start">{@html title}</h2>
+    <div class="flex lg:flex-row flex-col gap-2 justify-center items-center w-full">
+        <Button href={href1} class="{btn} lg:w-auto w-full">
          {btn1}
         </Button>
         {#if btn2 !== ''}
-         <Button variant="outline" href={href2} class="{btn} {glass} text-gray-1">
+         <Button variant="outline" href={href2} class="{btn} {glass} lg:w-auto w-full text-gray-1">
                 {btn2}
             </Button>
         {/if}
     </div>
 
-    <p class="text-gray-1">{para}</p>
+    <p class="text-gray-1 !lg:text-[16px] !text-[14px]">{para}</p>
 
 </section>
