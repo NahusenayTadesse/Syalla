@@ -37,7 +37,7 @@
 
 
 <footer class="flex flex-col gap-4 justify-center items-center px-[10%] mt-8">
-        <div class="grid grid-cols-4 gap-8 place-items-center p-8 py-16">
+        <div class="grid grid-cols-4 w-full place-items-center items-start p-8 py-16 px-0">
 
             <div class="flex flex-col gap-4">
                 <h4 class="text-primary">Syaala LLC</h4>

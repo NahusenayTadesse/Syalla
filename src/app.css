@@ -183,7 +183,7 @@ h1,h2,h3,h4,h5,h6{
 /* Heading scale */
 h1{ font-size: 76px; }   /* ~32px → 64px */
 h2{ font-size: 49px; font-weight: 400; }  /* ~28px → 48px */
-h3{ font-size: clamp(1.375rem, 1.1rem + 2.2vw, 2.25rem); } /* ~22px → 36px */
+h3{ font-size: 39px; } /* ~22px → 36px */
 h4{ font-size: clamp(1.125rem, 0.95rem + 1.6vw, 1.75rem); } /* ~18px → 28px */
 h5{ font-size: clamp(1rem, 0.9rem + 0.9vw, 1.25rem); } /* ~16px → 20px */
 h6{ font-size: 20px; } /* ~14px → 16px */

@@ -1,7 +1,6 @@
 <script>
 	import Card from "./Card.svelte";
 	import Starts from "./Starts.svelte";
-	import Tags from "./Tags.svelte";
 
     let content = 'What you will get';
     let para = 'Syaala combines cloud simplicity with hardware control so you can deploy, scale, or host AI models without friction.'

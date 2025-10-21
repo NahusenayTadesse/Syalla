@@ -12,14 +12,14 @@ isolate  ring-white/5 ring-1 bg-opacity-white-10 bg-white/0 shadow-sm shadow-whi
     <p>
         {call}
     </p>
-    <h2>{title}</h2>
+    <h2 class="text-center">{@html title}</h2>
     <div class="flex flex-row gap-2 justify-center items-center">
         <Button href={href1} class={btn}>
          {btn1}
         </Button>
         {#if btn2 !== ''}
          <Button variant="outline" href={href2} class="{btn} {glass} text-gray-1">
-                Power with Your Own GPUs
+                {btn2}
             </Button>
         {/if}
     </div>

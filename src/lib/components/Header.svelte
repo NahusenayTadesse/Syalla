@@ -3,9 +3,8 @@
 	import { btn, glass } from "$lib/global.svelte";
 
    let pages = [
-    { name: 'Inference', href: '/inference'},
     { name: 'Colocation', href: '/colocation'},
-    { name: 'Pricing', href: '/Pricing'},
+    { name: 'Pricing', href: '/pricing'},
    ]
 </script>
 
