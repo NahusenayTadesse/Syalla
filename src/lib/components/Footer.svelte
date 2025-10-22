@@ -36,7 +36,7 @@
 
 
 
-<footer class="flex flex-col gap-4 justify-center items-center lg:px-[10%] px-4 mt-8 w-full">
+<footer class="flex flex-col gap-4 justify-center items-center lg:px-[10%] px-8 mt-8 w-full">
         <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 w-full place-items-center items-start p-8 py-16 px-0">
 
             <div class="flex flex-col gap-4">
@@ -53,11 +53,11 @@
         </div>
 
             <div class="flex lg:flex-row flex-col  lg:justify-between justify-center w-full">
-                <p class="text-gray-1">
+                <span class="text-gray-1 lg:text-[16px] text-[12px] text-center">
                     ©{year} Syaala LLC. Memphis, TN.
-                </p>
-                <p class="text-gray-1">
+                </span> 
+                <span class="text-gray-1 lg:text-[16px] text-[12px] text-center">
                     Deploy AI models in seconds, not hours.
-                </p>
+                </span>
             </div>
 </footer>

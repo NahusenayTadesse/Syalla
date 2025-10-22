@@ -1,6 +1,7 @@
 
 <script>
 	import Bottom from "$lib/components/Bottom.svelte";
+	import Calculator from "$lib/components/Calculator.svelte";
 	import FAQ from "$lib/components/FAQ.svelte";
 	import Pricing from "$lib/components/Pricing.svelte";
 	import Starts from "$lib/components/Starts.svelte";
@@ -11,7 +12,7 @@
 </script>
 
 
-<section class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 pt-32 relative">
+<section class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 lg:pt-32 pt-8 relative">
      <div class="w-full">
      <Starts title='Simple, Transparent Pricing' content='Pricing'
       para = 'Choose the plan that fits your AI workload  pay per GPU, rack, 
@@ -21,8 +22,9 @@ or per request, with no hidden costs.'
     href = ''
      />
   </div>
-
+ 
    <Pricing />
+   <Calculator />
    <FAQ />
 
    <Bottom 

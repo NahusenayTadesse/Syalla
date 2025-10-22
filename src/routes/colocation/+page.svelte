@@ -36,7 +36,7 @@
         Bring your machines or lease Syaala’s GPU racks. we provide the power, cooling, network, and remote support. Launch your infrastructure without friction.
         </p>
 
-        <div class="flex flex-row gap-4">
+        <div class="flex lg:flex-row flex-col w-full gap-4">
             <Button class={btn}>
 Request a quote            </Button>
 

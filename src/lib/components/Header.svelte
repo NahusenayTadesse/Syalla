@@ -5,6 +5,7 @@
 	import { slide } from "svelte/transition";
 
    let pages = [
+    { name: 'Home', href: '/'},
     { name: 'Colocation', href: '/colocation'},
     { name: 'Pricing', href: '/pricing'},
    ];
@@ -42,7 +43,9 @@ Start Deploying
      
 </div>
 
-<div class="lg:hidden sticky top-4 z-10 flex flex-row justify-between items-center p-4">
+<!-- Mobile Nav -->
+
+<nav class="lg:hidden sticky top-4 z-10 flex flex-row justify-between items-center p-4">
 
    <button class="p-0" onclick={()=> open = !open}>
     <Menu />
@@ -50,7 +53,7 @@ Start Deploying
 
     {#if open}
        <ul class="flex flex-col w-[100%] absolute top-16 p-2 right-0 
-         z-100 gap-2 justify-center items-start pl-4 {glass}">
+         z-10000 gap-2 justify-center items-start pl-4  bg-black/10 backdrop-blur-lg">
 
         {#each pages as section}
         <li transition:slide|global>
@@ -71,4 +74,4 @@ Start Deploying
 Start Deploying
        </Button>
 
-</div>
+   </nav>
