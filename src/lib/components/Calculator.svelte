@@ -1,7 +1,6 @@
 <script>
 	import { glass } from "$lib/global.svelte";
      import { Slider } from "$lib/components/ui/slider/index.js";
-       import * as Table from "$lib/components/ui/table/index.js";
 
 
      import { Dot, CircleAlert } from "@lucide/svelte";
@@ -86,7 +85,7 @@
           
         <img src="/images/line.png" alt="">
 
-         <p class="text-gray-1">
+         <p class="text-gray-1 lg:text-start text-center flex lg:flex-row flex-col lg:items-start justify-center items-center gap-2">
             <CircleAlert class='text-[#D97706]' />
 
             18 hours on A100 40GB = 2,700 credits. You'll have 7,300 credits remaining.

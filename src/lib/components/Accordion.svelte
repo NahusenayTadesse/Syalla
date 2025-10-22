@@ -11,7 +11,7 @@
     class="flex flex-row justify-between lg:items-center" 
     transition:fade={{ duration: 300 }}>
 
-    <h5 class="!text-[16px]">{title} </h5>
+    <span class="lg:text-[16px] text-[14px]">{title} </span>
     <Plus class="h-6 w-6 {isOpen ? '-rotate-45' : ''} transition-transform duration-600"/></button>
 
    {#if isOpen}

@@ -23,7 +23,7 @@
 <section class="lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse gap-6 justify-center items-center 
  ">
  
-     <div class="lg:w-[50%] w-full flex flex-col gap-4 lg:pt-0 pt-48 z-10">
+     <div class="lg:w-[50%] w-full flex flex-col gap-4 lg:pt-0 pt-48 z-1">
         <div class="w-[300px]"><Tags {content} /></div>
         
 
