@@ -6,42 +6,45 @@
 
 
   let starter = [
-    '500 compute credits', 
-    'Deploy any AI model',
-    'Acess to all GPU type',
-    'Pay-as-you-go pricing',
-    'No expiration'
+    '5 KW power allocation',
+    'Half rack (21U)',
+    '1 Gbps DIA included',
+    '2 hours smart hands/month',
+    '24/7 monitoring',
+    'Remote rack camera access'
   ];
 
 
   let pro = [
-     '2,500 compute credits',
-     '20% better value',
-     'Priority support',
-     'Advanced monitoring',
-     'No expiration'
+    '10 kW power allocation',
+    'Full rack (42U)',
+    '1 Gbps DIA included',
+    '4 hours smart hands/month',
+    'Priority support',
+    'Remote rack camera + telemetry'
   ];
 
   let enterprise = [
-     '10,000 compute credits',
-     '25% better value',
-     'Dedicated support',
-     'Custom SLA',
-     'No expiration'
+   ' 15+ kW per rack',
+'Multiple racks available',
+'10 Gbps DIA or dual carrier',
+'Unlimited smart hands',
+'Dedicated account manager',
+'Custom SLA terms'
   ]
 
   
 </script>
 
-{#snippet pricing(title='', description='', price='', credits='', list = [''])}
+{#snippet pricing(title='', description='', price='', list = [''])}
 
   <div class="p-[32px] {glass} flex flex-col gap-4 items-start justify-start rounded-xl">
       <h6 class="font-medium">{title}</h6>
       <p class="text-gray-1">{description}</p>
 
       <div class="flex flex-row gap-0 p-0 items-center">
-        <h3>${price}</h3>
-        <p class="text-gray-1">/{credits}credits</p>
+        <h3>{price}</h3>
+        <p class="text-gray-1">/month</p>
       </div>
    <Button class='!bg-[#0F100F] w-full {glass}'>
          Choose this plan
@@ -66,9 +69,8 @@
 <section class="grid lg:grid-cols-3 grid-cols-1 gap-4">
 
     {@render pricing('Starter',
-     'Perfect for testing and small projects. Ideal for developers and small teams.',
-     '5',
-     '500',
+     'Half rack for testing and small deployments',
+     '$600',
      starter
      )}
 
@@ -76,11 +78,11 @@
         bg-cover bg-[url(/images/pro.png)] shadow-sm shadow-primarynp
        ">
       <h6 class="font-medium">Pro</h6>
-      <p class="text-gray-1">Best for production workloads. Ideal for teams scaling AI models with reliability.</p>
+      <p class="text-gray-1">Full rack for production AI workloads</p>
 
       <div class="flex flex-row gap-0 p-0 items-center">
-        <h3>$25</h3>
-        <p class="text-gray-1">/2500credits</p>
+        <h3>$995</h3>
+        <p class="text-gray-1">/month</p>
       </div>
    <Button class='bg-primary w-full'>
          Choose this plan
@@ -100,9 +102,8 @@
   </div>
 
       {@render pricing('Enterprise',
-     'For high-volume deployments. Designed for enterprises needing dedicated GPUs.',
-     '5',
-     '10,000',
+     'Multi-rack deployments with custom SLAs',
+     'Custom',
      enterprise
      )}
 

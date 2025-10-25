@@ -12,7 +12,8 @@
 </script>
 
 
-<section class="lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse gap-6 justify-center items-center 
+<section class="lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse gap-6 justify-center items-center
+  
  ">
  
      <div class="lg:w-[50%] w-full flex flex-col justify-center items-start gap-4 lg:pt-0 pt-56 z-1">
@@ -30,11 +31,11 @@
         </p>
 
         <div class="flex lg:flex-row flex-col gap-4 w-full items-center lg:justify-start justify-center">
-            <Button class="{btn} w-full lg:w-auto">
+            <Button class="{btn} w-full lg:w-auto" href="https://platform.syaala.com/" target='_blank'>
                 Deploy Your First Model
             </Button>
 
-            <Button variant="outline" class="{btn} {glass} lg:w-auto w-full text-gray-1">
+            <Button variant="outline" class="{btn} lg:w-auto w-full text-gray-1">
                 Power with Your Own GPUs
             </Button>
 

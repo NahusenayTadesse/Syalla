@@ -3,6 +3,8 @@
 	import { btn, glass } from "$lib/global.svelte";
 	import { TextAlignJustify, X } from "@lucide/svelte";
 	import { slide } from "svelte/transition";
+    import * as Sheet from "$lib/components/ui/sheet/index.js";
+
 
    let pages = [
     { name: 'Home', href: '/'},
@@ -11,14 +13,12 @@
    ];
 
 
-   let open = $state(false);
-
-   let Menu = $derived( open ? X: TextAlignJustify )
+  
 </script>
 
 <div class="hidden lg:flex flex-row gap-4 justify-self-center items-center z-2 
-justify-between fixed top-4 bg-[#0C270C] p-4 rounded-lg px-6 w-3/5 " >
-   <div class="flex flex-row gap-16 items-center justify-center">
+justify-between fixed top-4 bg-[#0F1211] p-4 rounded-lg px-6 w-3/5 border-0.5 shadow-lg shadow-white/10 border-white " >
+   <div class="flex flex-row gap-16 items-center justify-center"> 
    <a class="text-lg font-bold hover:scale-110 transition-transform ease-in-out duration-300" href="/">Syaala </a>
     <div class="flex flex-row gap-4 items-center justify-center" >
       {#each pages as page }
@@ -31,11 +31,11 @@ justify-between fixed top-4 bg-[#0C270C] p-4 rounded-lg px-6 w-3/5 " >
 
      
 
-        <Button variant="outline" class="{btn} {glass} text-gray-1">
+        <Button variant="outline" class="{btn}  text-gray-1">
 Explore Colocation       
 </Button>
 
-  <Button class={btn}>
+  <Button class={btn} href="https://platform.syaala.com/" target='_blank'>
 Start Deploying
        </Button>
     
@@ -47,11 +47,37 @@ Start Deploying
 
 <nav class="lg:hidden sticky top-4 z-10 flex flex-row justify-between items-center p-4">
 
-   <button class="p-0" onclick={()=> open = !open}>
-    <Menu />
-   </button>
+  <Sheet.Root>
+  <Sheet.Trigger><TextAlignJustify /></Sheet.Trigger>
+  <Sheet.Content class="bg-black/10 backdrop-blur-lg" side="left" >
+    <Sheet.Header class="flex flex-col pt-8 gap-4">
 
-    {#if open}
+      <h3 class="text-transparent bg-clip-text
+           bg-gradient-to-r from-green-1 to-green-2">Syalla</h3>
+     <ul class="flex flex-col gap-2 !border-0 justify-center items-start pt-12">
+
+        {#each pages as section}
+        <li>
+            <a
+                href={section.href}
+                title={section.name}
+                class="hover:text-primary transition-transform duration-300 ease-in-out hover:scale-125 text-xl"
+                >
+                {section.name} 
+            </a>
+            </li>
+        {/each}  
+        </ul>
+
+    </Sheet.Header>
+  </Sheet.Content>
+</Sheet.Root>
+
+   <!-- <button class="p-0" onclick={()=> open = !open}>
+    <Menu />
+   </button> -->
+
+    <!-- {#if open}
        <ul class="flex flex-col w-[100%] absolute top-16 p-2 right-0 
          z-10000 gap-2 justify-center items-start pl-4  bg-black/10 backdrop-blur-lg">
 
@@ -68,7 +94,7 @@ Start Deploying
         {/each}  
         </ul>
 
-    {/if}
+    {/if} -->
 
       <Button class={btn}>
 Start Deploying

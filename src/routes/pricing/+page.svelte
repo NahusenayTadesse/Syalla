@@ -6,11 +6,33 @@
 	import Pricing from "$lib/components/Pricing.svelte";
 	import Starts from "$lib/components/Starts.svelte";
 
+
   let btns = false;
 
 
 </script>
+<svelte:head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Pricing</title>
+  <meta name="description" content="Syaala LLC — Enterprise-grade AI infrastructure and colocation. Deploy models in under 60 seconds, scale securely, and get enterprise support for mission-critical AI workloads." />
+  <link rel="canonical" href="/pricing" />
 
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Syaala LLC, AI Infrastructure & Colocation" />
+  <meta property="og:description" content="Deploy and scale AI workloads with Syaala: fast model deployment, secure infrastructure, and enterprise support." />
+  <meta property="og:image" content="/images/server.png" />
+  <meta property="og:image:alt" content="Syaala, AI infrastructure and colocation" />
+  <meta property="og:url" content="/pricing" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Syaala LLC — AI Infrastructure & Colocation" />
+  <meta name="twitter:description" content="Deploy and scale AI workloads with Syaala: fast model deployment, secure infrastructure, and enterprise support." />
+  <meta name="twitter:image" content="/images/server.png" />
+
+  <!-- optional mobile UI improvements -->
+  <meta name="theme-color" content="#000000" />
+</svelte:head>
 
 <section class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 lg:pt-32 pt-8 relative">
      <div class="w-full">

@@ -24,7 +24,7 @@ let btn2=false;
        <section class="w-full flex flex-col gap-8">
 
 
-<Starts title="Deploy AI Models Instantly" {content} {para}  {btn} btnName='Deploy Your First Model' href='' />
+<Starts title="Deploy AI Models Instantly" {content} {para}  {btn} btnName='Deploy Your First Model' href="https://platform.syaala.com/"  />
 
 <div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
     <div class="lg:col-span-2">

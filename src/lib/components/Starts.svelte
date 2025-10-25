@@ -18,6 +18,6 @@
   <p class="text-gray-1 lg:w-1/2 w-full">{para}</p>
  {#if btn} 
   
-   <Button {href} class="bg-white text-black w-xs">{btnName} <ArrowRight /></Button>
+   <Button {href} class="bg-white text-black w-xs" target='_blank'>{btnName} <ArrowRight /></Button>
  {/if}
 </div>

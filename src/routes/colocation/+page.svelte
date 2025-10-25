@@ -18,6 +18,23 @@
       let btns = false;
 </script>
 
+<svelte:head>
+  <title>Colocation — Syaala</title>
+  <meta name="description" content="Syaala Colocation — enterprise-grade GPU colocation: power, cooling, network, and remote support for AI workloads. Ship your servers or lease racks with predictable pricing and rapid deployment." />
+  <link rel="canonical" href="/colocation" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Syaala, Colocation for GPUs & AI Infrastructure" />
+  <meta property="og:description" content="Enterprise-grade colocation optimized for high-density GPU workloads. Fast rack deployment, N/2N power, secure facilities, and hybrid cloud connectivity." />
+  <meta property="og:image" content="/images/gpu.png" />
+  <meta property="og:image:alt" content="Syaala, GPU colocation" />
+  <meta property="og:url" content="/colocation" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Syaala — GPU Colocation & AI Infrastructure" />
+  <meta name="twitter:description" content="Ship your GPUs or lease racks with Syaala: power, cooling, network, remote support, and transparent pricing for AI workloads." />
+  <meta name="twitter:image" content="/images/gpu.png" />
+</svelte:head>
 <div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative">
 
 <section class="lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse gap-6 justify-center items-center 
@@ -33,14 +50,13 @@
             Ship Your GPUs. Light up your cluster in 72 hours.</h1>
 
         <p class="text-gray-1">
-        Bring your machines or lease Syaala’s GPU racks. we provide the power, cooling, network, and remote support. Launch your infrastructure without friction.
-        </p>
+Memphis colocation built for AI workloads. We handle receiving, racking, burn-in, and monitoring. You own the hardware, we handle the infrastructure.        </p>
 
         <div class="flex lg:flex-row flex-col w-full gap-4">
             <Button class={btn}>
 Request a quote            </Button>
 
-            <Button variant="outline" class="{btn} {glass}  text-gray-1">
+            <Button variant="outline" class="{btn}   text-gray-1">
                 See pricing
             </Button>
 
