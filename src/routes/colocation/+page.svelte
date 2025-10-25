@@ -46,7 +46,7 @@
 
 
         <h1 class="inline-block text-transparent bg-clip-text
-           bg-gradient-to-r from-green-1 to-green-2">
+           bg-linear-to-r from-green-1 to-green-2">
             Ship Your GPUs. Light up your cluster in 72 hours.</h1>
 
         <p class="text-gray-1">

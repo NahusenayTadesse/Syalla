@@ -16,6 +16,10 @@
 
     ]
 
+  let index = $state(0);
+  let name = $derived(gpus[index].name)
+	let mul = $derived(value * gpus[index].hr * 0.1)
+
 </script>
 
 <section class="grid lg:grid-cols-2  grid-cols-1 gap-6 w-full">
@@ -24,10 +28,15 @@
         <h6>Cost Calculator</h6>
         <div class="grid lg:grid-cols-3 grid-cols-2 gap-2 rounded-lg">
 
-            {#each gpus as gpu }
+            {#each gpus as gpu, i }
 
-            <button class="flex flex-col gap-2 {glass} hover:bg-primary rounded-lg p-4 justify-start items-start">
-                <span class="text-[14px]">{gpu.name}</span>
+            <button class="flex flex-col gap-2 {glass} 
+            hover:bg-primary
+            {index === i ? 'bg-primary!': ''}
+            rounded-lg p-4 justify-start items-start"
+             onclick={()=> index=i}
+            >
+                <span class="text-[14px]">{gpu.name} {i}</span>
 
                 <div class="flex flex-row text-[12px] justify-center items-center">
 
@@ -45,9 +54,9 @@
 
         <div class="flex flex-col gap-4">
 
-            <p class="!font-medium">Usage Hours</p>
+            <p class="font-medium">Usage Hours</p>
            <div class="flex flex-row gap-2">
-                        <Slider type="single" bind:value max={10} step={1} />
+                        <Slider type="single" bind:value max={100} step={1} />
                         <p>{value}hr</p>
 
            </div>
@@ -72,14 +81,14 @@
           <div class="flex lg:flex-row flex-col justify-between lg:items-center items-start gap-6">
             <div class="flex flex-col gap-2">
                 <p class="text-gray-1">Estimated Cost</p>
-                <h3>$5.00</h3>
+                <h3>${mul}</h3>
                 <p class="text-gray-1">500 credits</p>
             </div>
             <div class="flex flex-col gap-1 lg:items-center items-start">
                 <p class="text-gray-1">Recommended Package</p>
                 <h3 class="text-transparent bg-clip-text
-           bg-gradient-to-r from-primary to-green-2">Starter</h3>
-                <p class="text-gray-1 flex flex-row gap-0 !font-medium justify-center">$5<Dot />500 Credits</p>
+           bg-linear-to-r from-primary to-green-2">Starter</h3>
+                <p class="text-gray-1 flex flex-row gap-0 font-medium justify-center">${mul}<Dot />500 Credits</p>
             </div>
             </div>
           
@@ -88,7 +97,7 @@
          <p class="text-gray-1 lg:text-start text-center flex lg:flex-row flex-col lg:items-start justify-center items-center gap-2">
             <CircleAlert class='text-[#D97706]' />
 
-            18 hours on A100 40GB = 2,700 credits. You'll have 7,300 credits remaining.
+            18 hours on {name} = 2,700 credits. You'll have 7,300 credits remaining.
          </p>
 
 
