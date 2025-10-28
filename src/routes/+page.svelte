@@ -13,18 +13,18 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Syaala LLC, AI Infrastructure & Colocation" />
     <meta property="og:description" content="Deploy and scale AI workloads with Syaala: fast model deployment, secure infrastructure, and enterprise support." />
-    <meta property="og:image" content="/images/server.png" />
+    <meta property="og:image" content="/images/preview.webp" />
     <meta property="og:image:alt" content="Syaala — AI infrastructure and colocation" />
     <meta property="og:url" content="/" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Syaala LLC — AI Infrastructure & Colocation" />
     <meta name="twitter:description" content="Deploy and scale AI workloads with Syaala: fast model deployment, secure infrastructure, and enterprise support." />
-    <meta name="twitter:image" content="/images/server.png" />
+    <meta name="twitter:image" content="/images/preview.webp" />
 </svelte:head>
 
 <div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative w-full
- bg-contain bg-top-left bg-[url(/images/lightnew.png)] bg-no-repeat
+ bg-contain bg-top-left bg-[url(/images/lightnew.webp)] bg-no-repeat
 ">
 <!-- <img src="/images/lightnew.png" alt="" class="absolute left-0 -top-4 z-1"> -->
 <Hero />
@@ -36,7 +36,7 @@
    btn1="Deploy Your First Model"
    btn2="Explore Colocation"
    href1='https://platform.syaala.com/'
-   href2=''
+   href2='/colocation'
    para='No credit card required • Deploy in under 60 seconds • Enterprise support available'
   />
 </div>

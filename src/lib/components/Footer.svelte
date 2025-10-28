@@ -37,7 +37,7 @@
 
 
 <footer class="flex flex-col gap-4 justify-center items-center lg:px-[10%] px-8 mt-8 w-full 
-bg-gradient-to-tr from-[#0F1211] via-[#07171433] to-white/20
+bg-linear-to-tr from-[#0F1211] via-[#07171433] to-white/20
 ">
         <div class="grid lg:grid-cols-4 grid-cols-1 gap-6 w-full place-items-center items-start p-8 py-16 px-0">
 

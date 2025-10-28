@@ -92,7 +92,7 @@
             </div>
             </div>
           
-        <img src="/images/line.png" alt="">
+        <img src="/images/line.webp" alt="">
 
          <p class="text-gray-1 lg:text-start text-center flex lg:flex-row flex-col lg:items-start justify-center items-center gap-2">
             <CircleAlert class='text-[#D97706]' />

@@ -4,7 +4,7 @@
     let { title, content, image }: {title: string, content: string, image: string} = $props();
 </script>
 
-<div class="{glass} w-full h-full rounded-[16px] flex flex-col gap-8 justify-center p-8 items-center">
+<div class="{glass} w-full h-full rounded-2xl flex flex-col gap-8 justify-center p-8 items-center">
 <img src={image} alt="Card Illustration" >
 
   <h6>{title}</h6>

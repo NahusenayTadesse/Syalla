@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { btn, glass } from "$lib/global.svelte";
+	import { btn } from "$lib/global.svelte";
           import { Button } from "$lib/components/ui/button/index.js";
 
     let { call, title, btn1, btn2, href1, href2, para }: {call: string, title:string, btn1:string, btn2:string, href1:string, href2:string, para:string } = $props()
@@ -24,6 +24,6 @@ isolate  ring-white/5 ring-1 bg-opacity-white-10 bg-white/0 shadow-sm shadow-whi
         {/if}
     </div>
 
-    <p class="text-gray-1 !lg:text-[16px] !text-[14px]">{para}</p>
+    <p class="text-gray-1 !lg:text-[16px] text-[14px]!">{para}</p>
 
 </section>

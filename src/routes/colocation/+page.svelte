@@ -18,30 +18,41 @@
       let btns = false;
 
 
-    import { superForm } from 'sveltekit-superforms';
+    import  { superForm } from 'sveltekit-superforms';
 	import { Label } from '$lib/components/ui/label/index.js';
-	import { ArrowLeft, ArrowRight, Check } from '@lucide/svelte';
+	import { ArrowLeft, ArrowRight, Check, Loader } from '@lucide/svelte';
 	import SelectComp from '$lib/components/SelectComp.svelte';
-	import ComboBox from '$lib/components/ComboBox.svelte';
+	// import ComboBox from '$lib/components/ComboBox.svelte';
+	import { fullSchema } from "./schema.js";
+	import { zod4Client } from "sveltekit-superforms/adapters";
 
 
     let { data } = $props();
 
-    const { form, formId, errors, message, delayed, capture, restore, enhance } = superForm(data.form, {
+    const { form, errors, delayed, capture, restore, enhance } = superForm(data.form, {
         // Don't reset between steps!
-        resetForm: false
-    });
+        resetForm: true,
+        validators: zod4Client(fullSchema)
+        
+  }
+    );
 
     // Snapshots takes care of navigating back
     export const snapshot = { capture, restore };
 
-    let step = $derived($message?.step ?? 1);
+    
+
+
+    let step = $derived($form.step || 1);
+
+    
 
    let gpuOptions = [
     { value: 'RTX 4090', name: 'RTX 4090' },
-    { value: 'A10', name: 'NVIDIA A10' },
-    { value: 'A100', name: 'NVIDIA A100' },
-    { value: 'H100', name: 'NVIDIA H100' }
+    { value: 'NVIDIA A10 1', name: 'NVIDIA A10 1' },
+    { value: 'NVIDIA A100 2', name: 'NVIDIA A100 2' },
+    { value: 'NVIDIA A100 3', name: 'NVIDIA A100 3' },
+    { value: 'NVIDIA H100 4', name: 'NVIDIA H100 4' }
    ];
 
    let pricingOptions = [
@@ -49,6 +60,9 @@
     { value: 'Pro', name: 'Pro' },
     { value: 'Enterprise', name: 'Enterprise' }
    ];
+
+
+  
 </script>
 
 <svelte:head>
@@ -59,16 +73,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Syaala, Colocation for GPUs & AI Infrastructure" />
   <meta property="og:description" content="Enterprise-grade colocation optimized for high-density GPU workloads. Fast rack deployment, N/2N power, secure facilities, and hybrid cloud connectivity." />
-  <meta property="og:image" content="/images/gpu.png" />
+  <meta property="og:image" content="/images/gpu.webp" />
   <meta property="og:image:alt" content="Syaala, GPU colocation" />
   <meta property="og:url" content="/colocation" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Syaala — GPU Colocation & AI Infrastructure" />
   <meta name="twitter:description" content="Ship your GPUs or lease racks with Syaala: power, cooling, network, remote support, and transparent pricing for AI workloads." />
-  <meta name="twitter:image" content="/images/gpu.png" />
+  <meta name="twitter:image" content="/images/gpu.webp" />
 </svelte:head>
-<div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative">
+<div class="flex flex-col gap-16 items-center justify-center px-[7%] pb-8 relative bg-contain bg-top-left bg-[url(/images/lightnew.webp)] bg-no-repeat">
 
 <section class="lg:h-screen h-auto w-full flex lg:flex-row flex-col-reverse gap-6 justify-center items-center 
  ">
@@ -86,10 +100,10 @@
 Memphis colocation built for AI workloads. We handle receiving, racking, burn-in, and monitoring. You own the hardware, we handle the infrastructure.        </p>
 
         <div class="flex lg:flex-row flex-col w-full gap-4">
-            <Button class={btn}>
+            <Button class={btn} href="#request">
 Request a quote            </Button>
 
-            <Button variant="outline" class="{btn}   text-gray-1">
+            <Button variant="outline" href="/pricing" class="{btn}   text-gray-1">
                 See pricing
             </Button>
 
@@ -99,10 +113,10 @@ Request a quote            </Button>
 
        <div class="lg:w-[50%] w-full lg:h-auto h-auto lg:mb-0 flex flex-row gap-0 justify-center items-center relative">
 
-        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-left absolute left-0.5 lg:block hidden" >
-        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-right absolute right-0.5 lg:block hidden" >
-         <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-left w-56 absolute left-1/4 top-2/3 lg:hidden block" >
-        <img src="/images/gpu.png" alt="Server Photos" class="bounce bounce-right w-56 absolute right-1/3 top-2/3 lg:hidden block" >
+        <img src="/images/gpu.webp" alt="Server Photos" class="bounce bounce-left absolute left-0.5 lg:block hidden" >
+        <img src="/images/gpu.webp" alt="Server Photos" class="bounce bounce-right absolute right-0.5 lg:block hidden" >
+         <img src="/images/gpu.webp" alt="Server Photos" class="bounce bounce-left w-56 absolute left-1/4 top-2/3 lg:hidden block" >
+        <img src="/images/gpu.webp" alt="Server Photos" class="bounce bounce-right w-56 absolute right-1/3 top-2/3 lg:hidden block" >
 
      </div>
 
@@ -183,8 +197,8 @@ stable, high-throughput performance without downtime.'
    title="Submit a custom request It’s time to host infrastructure on your terms."
    btn1="Request a quote"
    btn2="See pricing"
-   href1=''
-   href2=''
+   href1='#request'
+   href2='/pricing'
    para='60 days free rack rent • Discounted power first 6 months • 6-month flexible terms'
   />
 
@@ -223,32 +237,36 @@ stable, high-throughput performance without downtime.'
     
 {/snippet}
 
-{#snippet combo(name='', items=[{value:'', name:''}])}
+<!-- {#snippet combo(name='', items=[{value:'', name:''}])}
 	<div class="flex w-full flex-col justify-start gap-2">
 		<Label for={name} class="capitalize">{name.replace(/([a-z])([A-Z])/g, "$1 $2")}:</Label>
 
 		<ComboBox {name} bind:value={$form[name]} {items} />
 		{#if $errors[name]}<span class="text-red-500">{$errors[name]}</span>{/if}
 	</div>
-{/snippet} 
+{/snippet}  -->
+
 
 
 <form
     method="POST"
-    action="?/main"
+
     use:enhance
     class="w-full {glass} lg:max-w-xl max-w-full  mx-auto bg-transparent backdrop-blur-md border border-gray-800/60 rounded-lg p-8 space-y-6"
 >
     <!-- Step management -->
-    <input type="hidden" name="step" value={step} />
-    <input type="hidden" name="__superform_id" bind:value={$formId} />
+    <input type="hidden" name="step" bind:value={$form.step} />
+    <!-- <input type="hidden" name="__superform_id" bind:value={$formId} /> -->
+
+    <h2 id="request" class="text-center pb-4">Ready to Transform Your AI Infrastructure? </h2>
+
 
     <!-- Step 1 -->
     {#if step == 1}
-        <h2 class="text-2xl font-semibold text-gray-100 mb-2">Step 1: Your Details</h2>
+        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Step 1: Your Details</h3>
         <p class="text-sm text-gray-400 mb-4">Let’s get started by getting your details </p>
-            {@render fe('Name', 'fullName', 'text', 'Your Name', true)}
-            {@render fe('Company Name', 'companyName', 'text', 'Your Company Name', true)}
+        {@render fe('Name', 'fullName', 'text', 'Your Name', true)}
+        {@render fe('Company Name', 'companyName', 'text', 'Your Company Name', true)}
 
          {@render fe('Phone', 'phone', 'tel', '(123) 456-7890', false, '10', '15')}
 
@@ -256,7 +274,8 @@ stable, high-throughput performance without downtime.'
 
         <div class="flex justify-end">
             <Button
-                type="submit"
+                type="button"
+                 onclick={() => $form.step = 2}
                 class="btn-primary px-5 py-2 rounded-md hover:btn-primary-dark transition"
             >
                 Next <ArrowRight />
@@ -265,23 +284,23 @@ stable, high-throughput performance without downtime.'
 
     <!-- Step 2 -->
     {:else if step == 2}
-        <h2 class="text-2xl font-semibold text-gray-100 mb-2">Step 2: Confirmation</h2>
+        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Step 2: Confirmation</h3>
         <p class="text-sm text-gray-400 mb-4">Hello <strong class="text-gray-100">{$form.name}</strong>, just one more step!</p>
-        {@render combo('gpu', gpuOptions)}
+        {@render selects('gpu', gpuOptions)}
         {@render selects('pricing', pricingOptions)}
         {@render fe('Usage Hours per Day', 'hours', 'number', 'Hours', true, '1', '24')}
 
         <div class="flex justify-between items-center">
             <Button
                 type="button"
-                onclick={() => step = 1}
+                onclick={() => $form.step = 1}
             >
             <ArrowLeft /> Back
             </Button>
              <Button
-                type="submit"
+                type="button"
                 class="btn-primary px-5 py-2 rounded-md hover:btn-primary-dark transition"
-                onclick={() => step = 3}
+                onclick={() => $form.step = 3}
             >
                 Next  <ArrowRight />
             </Button>
@@ -289,7 +308,7 @@ stable, high-throughput performance without downtime.'
    
         {:else if step == 3}
 
-        <h2 class="text-2xl font-semibold text-gray-100 mb-2">Step 3: Additional Information</h2>
+        <h3 class="text-2xl font-semibold text-gray-100 mb-2">Step 3: Additional Information</h3>
         <p class="text-sm text-gray-400 mb-4">Almost done! Please provide any additional information below.</p> 
         <div class="flex w-full flex-col gap-2 justify-start">
 		<Label for='notes' >Additional Information:</Label>
@@ -304,27 +323,50 @@ stable, high-throughput performance without downtime.'
 			aria-invalid={$errors.notes ? 'true' : undefined}
 			
 		></textarea>
+         <input type="hidden" name="step" bind:value={$form.step} />
+         <input type="hidden" name="fullName" bind:value={$form.fullName} />
+         <input type="hidden" name="companyName" bind:value={$form.companyName} />
+         <input type="hidden" name="phone" bind:value={$form.phone} />
+         <input type="hidden" name="email" bind:value={$form.email} />
+         <input type="hidden" name="gpu" bind:value={$form.gpu} />
+         <input type="hidden" name="pricing" bind:value={$form.pricing} />
+         <input type="hidden" name="hours" bind:value={$form.hours} />
+         <input type="hidden" name="step" bind:value={$form.step} />
+
+ 
+
+
+
 		{#if $errors.notes}
 			<span class="text-red-500">{$errors.notes}</span>
 		{/if}
 	</div>
 
-         <div class="text-sm text-gray-400">
-            By submitting this form, you agree to our <a href="/terms" class="text-primary underline">Terms of Service</a> and <a href="/privacy" class="text-primary underline">Privacy Policy</a>.
-        </div>
 
         <div class="flex justify-between items-center">
             <Button
                 type="button"
-                onclick={() => step = 2}
+                onclick={() => $form.step = 2}
             >
             <ArrowLeft /> Back
             </Button>
             <Button
                 type="submit"
+
                 class="btn-primary px-5 py-2 rounded-md hover:btn-primary-dark transition"
-            >
-                Submit <Check />
+            >        
+
+
+            Submit 
+            {#if $delayed}
+
+            <Loader class="animate-spin"/>
+
+            {:else}
+            <Check />
+            {/if}
+
+            
             </Button>
         </div>
     {/if}

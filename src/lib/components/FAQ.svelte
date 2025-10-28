@@ -18,7 +18,7 @@
 <div class="w-full flex flex-col gap-4 justify-start items-start">
  <Tags content="FAQ" />
 
- <h2 class="!font-normal">Frequently Asked Questions</h2>
+ <h2 class="font-normal!">Frequently Asked Questions</h2>
 <div class="w-full p-0 flex flex-col gap-4">
     {#each faq as faq}
 

@@ -1,10 +1,12 @@
-import { superValidate, message, } from 'sveltekit-superforms';
+import { superValidate, message, fail, } from 'sveltekit-superforms';
 import { zod4 } from 'sveltekit-superforms/adapters';
 // import { schemaStep1, schemaStep2, schemaStep3 } from './schemas.js';
 import nodemailer from 'nodemailer';
 import { HOST, PORT, USER, PASSWORD } from '$env/static/private';
 
 import type { Actions, PageServerLoad } from './$types.js';
+
+import { fullSchema } from './schema.js';
 
 // Strongly typed status message
 // type Message = { step: number; text?: string };
@@ -14,55 +16,60 @@ import type { Actions, PageServerLoad } from './$types.js';
 
 
 
-import { z } from 'zod';
 
- const fullSchema = z.object({
-  step: z.number().int().min(1).max(3),
-  fullName: z.string().min(2),
-  email: z.string().email(),
-  phone: z.string(),
-  companyName: z.string(),
-  gpu: z.string(),
-  pricing: z.string(),
-  hours: z.string(),
-  notes: z.string()
-}).superRefine((data, ctx) => {
-  /* validate only the fields that belong to the current step */
-  if (data.step >= 1 && !data.fullName) ctx.addIssue({ code: 'custom', path: ['fullName'], message: 'Required' });
-  if (data.step >= 2 && !data.companyName) ctx.addIssue({ code: 'custom', path: ['companyName'], message: 'Required' });
-  if (data.step >= 3 && !data.gpu) ctx.addIssue({ code: 'custom', path: ['gpu'], message: 'Required' });
-});
+// .superRefine((data, ctx) => {
+//   /* validate only the fields that belong to the current step */
+//   if (data.step >= 1 && !data.fullName) ctx.addIssue({ code: 'custom', path: ['fullName'], message: 'Required' });
+//   if (data.step >= 2 && !data.companyName) ctx.addIssue({ code: 'custom', path: ['companyName'], message: 'Required' });
+//   if (data.step >= 3 && !data.gpu) ctx.addIssue({ code: 'custom', path: ['gpu'], message: 'Required' });
+// })
 
 export const load: PageServerLoad = async () => {
   const form = await superValidate(zod4(fullSchema));
   return { form };
 };
 
+import { setFlash } from 'sveltekit-flash-message/server';
+
 export const actions: Actions = {
-    main: async ({ request }) => {
-        const formData = await request.formData();
-        const form = await superValidate(formData, zod4(fullSchema));
+  default: async ({ request, cookies }) => {
+    const formData = await request.formData();
+    // const currentStep = Number(formData.get('step') ?? 1);
 
-        if (!form.valid) return message(form, { step: form.data.step });
+    // Validate only the current step
+    const form = await superValidate(formData, zod4(fullSchema));
 
-        // not finished yet → go to next step
-        if (form.data.step < 3) {
-            form.data.step += 1;
-            return message(form, { step: form.data.step });
-        }
 
-        // ---------- last step ----------
+    if (!form.valid) {
+     setFlash({ type: 'error', message: "Please check your form data." }, cookies);
+
+      return message(form, 'Please correct the errors below.');
+    }
+
+    // If not on the final step, increment and return
+    // if (currentStep < 3) {
+    //   form.data.step = currentStep + 1;
+	//   console.log("Proceeding to step:", form.data.step);
+    //   return message(form, { step: form.data.step });
+    // }
+
+    // Final step: send email
+    const { fullName, email, phone, companyName, gpu, pricing, hours, notes } = form.data;
+
+    const emailData = { fullName, email, phone, companyName, gpu, pricing, hours, notes };
+
     try {
-				await sendEmails(form.data);
-				console.log("Success")
-				return { success: true, message: 'Test emails sent with dummy data.' };
-			} catch (err) {
-				console.log(err)
-				return { success: false, error: String(err) };
-			}
-    },	
-};
+      await sendEmails(emailData);
+      setFlash({ type: 'success', message: 'Your request has been submitted.' }, cookies);
+      return { form };
+    } catch (err) {
+		console.error("Error sending emails:", err);
+      setFlash({ type: 'error', message: String(err) }, cookies);
+      return fail(400, { form });
 
+	}
+  },
+};
 
 const transporter = nodemailer.createTransport({
 	host: HOST,
@@ -77,12 +84,12 @@ const transporter = nodemailer.createTransport({
 async function sendEmails(data: {
 	fullName: string;
 	email: string;
-	phone: string
+	phone: string;
 	companyName: string;
 	gpu: string;
 	pricing: string;
 	notes: string;
-	hours: string;
+	hours: number | undefined;
 }) {
 	const { fullName, email, phone, companyName, gpu, pricing, notes, hours } = data;
 
@@ -91,8 +98,8 @@ async function sendEmails(data: {
 	// ✅ Email sent to the user
 	const htmlContent = `
 	<div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto;">
-		<div style="background-color: #10B981; height: 100px; text-align: center; margin-bottom: 20px; padding-top: 45px;">
-			<img src="https://syaala.com/images/gpu.png" alt="Syaala Logo" style="width: 150px; height: auto;" />
+		<div style="text-align: center; margin-bottom: 20px; padding-top: 45px;">
+			<img src="https://syaala.com/images/server.webp" alt="Syaala Logo" style="width: 150px; height: auto;" />
 		</div>
 		<h2 style="color: #10B981;">Thank You for Getting in Touch!</h2>
 		<p>Hi ${fullName.split(" ")[0]},</p>
@@ -108,8 +115,8 @@ async function sendEmails(data: {
 	// ✅ Email sent to the admin
 	const adminHtml = `
 	<div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; max-width: 600px; margin: 0 auto;">
-		<div style="background-color: #10B981; height: 100px; text-align: center; margin-bottom: 20px; padding-top: 45px;">
-			<img src="https://syaala.com/images/gpu.png" alt="Syaala Logo" style="width: 150px; height: auto;" />
+		<div style="text-align: center; margin-bottom: 20px; padding-top: 45px;">
+			<img src="https://syaala.com/images/server.webp" alt="Syaala Logo" style="width: 150px; height: auto;" />
 		</div>
 		<h2 style="color: #10B981;"> New Deployment Request Received</h2>
 
@@ -123,7 +130,7 @@ async function sendEmails(data: {
 		${notes ? `<p><strong style="color: #10B981;">Notes:</strong></p><p>${notes}</p>` : ''}
 
 		<br>
-		<p style="text-align: center;">&copy; ${currentYear} <a href="https://syaala.com" style="color: #0EA5E9; text-decoration: none;">Syaala</a> — All Rights Reserved.</p>
+		<p style="text-align: center;">&copy; ${currentYear} <a href="https://syaala.com" style="color: #10B981; text-decoration: none;">Syaala</a> — All Rights Reserved.</p>
 	</div>
 	`;
 

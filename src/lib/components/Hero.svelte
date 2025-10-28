@@ -22,7 +22,7 @@
 
 
         <h1 class="inline-block text-transparent bg-clip-text
-           bg-gradient-to-r from-green-1 to-green-2 lg:w-full w-full">
+           bg-linear-to-r from-green-1 to-green-2 lg:w-full w-full">
             Deploy and Host AI Models with out the hustle.</h1>
             
 
@@ -45,10 +45,10 @@
 
      <div class="lg:w-[50%] w-full lg:h-auto h-auto lg:mb-0 flex flex-row gap-0 justify-center items-center relative">
 
-        <img src="/images/left.png" alt="Server Photos" class="bounce bounce-left absolute left-0.5 lg:block hidden" >
-        <img src="/images/right.png" alt="Server Photos" class="bounce bounce-right absolute right-0.5 lg:block hidden" >
-         <img src="/images/top.png" alt="Server Photos" class="bounce bounce-left w-30 rotate-24 absolute left-1/2 top-1/2 lg:hidden block" >
-        <img src="/images/bottom.png" alt="Server Photos" class="bounce bounce-right w-30 rotate-24 absolute right-1/2 top-1/2 lg:hidden block" >
+        <img src="/images/left.webp" alt="Server Photos" class="bounce bounce-left absolute left-0.5 lg:block hidden" >
+        <img src="/images/right.webp" alt="Server Photos" class="bounce bounce-right absolute right-0.5 lg:block hidden" >
+         <img src="/images/top.webp" alt="Server Photos" class="bounce bounce-left w-30 rotate-24 absolute left-1/2 top-1/2 lg:hidden block" >
+        <img src="/images/bottom.webp" alt="Server Photos" class="bounce bounce-right w-30 rotate-24 absolute right-1/2 top-1/2 lg:hidden block" >
 
      </div>
 

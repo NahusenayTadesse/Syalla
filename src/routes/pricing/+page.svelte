@@ -21,14 +21,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Syaala LLC, AI Infrastructure & Colocation" />
   <meta property="og:description" content="Deploy and scale AI workloads with Syaala: fast model deployment, secure infrastructure, and enterprise support." />
-  <meta property="og:image" content="/images/server.png" />
+  <meta property="og:image" content="/images/preview.webp" />
   <meta property="og:image:alt" content="Syaala, AI infrastructure and colocation" />
   <meta property="og:url" content="/pricing" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Syaala LLC — AI Infrastructure & Colocation" />
   <meta name="twitter:description" content="Deploy and scale AI workloads with Syaala: fast model deployment, secure infrastructure, and enterprise support." />
-  <meta name="twitter:image" content="/images/server.png" />
+  <meta name="twitter:image" content="/images/preview.webp" />
 
   <!-- optional mobile UI improvements -->
   <meta name="theme-color" content="#000000" />
@@ -54,7 +54,7 @@ or per request, with no hidden costs.'
    title="Scale your workloads with confidence <br /> start with the Pro plan today."
    btn1="Get Started with Pro"
    btn2=""
-   href1=''
+   href1='https://platform.syaala.com'
    href2=''
    para=''
   />

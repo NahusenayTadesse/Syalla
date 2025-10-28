@@ -38,7 +38,7 @@
 
 {#snippet pricing(title='', description='', price='', list = [''])}
 
-  <div class="p-[32px] {glass} flex flex-col gap-4 items-start justify-start rounded-xl">
+  <div class="p-8 {glass} flex flex-col gap-4 items-start justify-start rounded-xl">
       <h6 class="font-medium">{title}</h6>
       <p class="text-gray-1">{description}</p>
 
@@ -46,11 +46,11 @@
         <h3>{price}</h3>
         <p class="text-gray-1">/month</p>
       </div>
-   <Button class='!bg-[#0F100F] w-full {glass}'>
+   <Button class='bg-[#0F100F]! w-full {glass}'>
          Choose this plan
    </Button>
 
-    <img src="/images/line.png" class="p-8" alt="">
+    <img src="/images/line.webp" class="p-8" alt="">
  <div class="flex flex-col gap-2">
    {#each list as list}
    <div class="flex flex-row gap-4">
@@ -74,8 +74,8 @@
      starter
      )}
 
-       <div class="p-[32px] rounded-xl flex flex-col gap-4 items-start justify-start
-        bg-cover bg-[url(/images/pro.png)] shadow-sm shadow-primarynp
+       <div class="p-8 rounded-xl flex flex-col gap-4 items-start justify-start
+        bg-cover bg-[url(/images/pro.webp)] shadow-sm shadow-primarynp
        ">
       <h6 class="font-medium">Pro</h6>
       <p class="text-gray-1">Full rack for production AI workloads</p>
@@ -88,7 +88,7 @@
          Choose this plan
    </Button>
 
-    <img src="/images/line.png" class="p-8" alt="">
+    <img src="/images/line.webp" class="p-8" alt="">
  <div class="flex flex-col gap-2">
    {#each pro as list}
    <div class="flex flex-row gap-4">

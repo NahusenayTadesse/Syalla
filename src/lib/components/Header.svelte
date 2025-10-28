@@ -31,7 +31,7 @@ justify-between fixed top-4 bg-[#0F1211] p-4 rounded-lg px-6 w-3/5 border-0.5 sh
 
      
 
-        <Button variant="outline" class="{btn}  text-gray-1">
+        <Button variant="outline" href="/colocation" class="{btn}  text-gray-1">
 Explore Colocation       
 </Button>
 
@@ -53,8 +53,8 @@ Start Deploying
     <Sheet.Header class="flex flex-col pt-8 gap-4">
 
       <h3 class="text-transparent bg-clip-text
-           bg-gradient-to-r from-green-1 to-green-2">Syalla</h3>
-     <ul class="flex flex-col gap-2 !border-0 justify-center items-start pt-12">
+           bg-linear-to-r from-green-1 to-green-2">Syalla</h3>
+     <ul class="flex flex-col gap-2 border-0! justify-center items-start pt-12">
 
         {#each pages as section}
         <li>
