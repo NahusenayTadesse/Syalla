@@ -2,7 +2,7 @@ import { superValidate, message, fail, } from 'sveltekit-superforms';
 import { zod4 } from 'sveltekit-superforms/adapters';
 // import { schemaStep1, schemaStep2, schemaStep3 } from './schemas.js';
 import nodemailer from 'nodemailer';
-import { HOST, PORT, USER, PASSWORD } from '$env/static/private';
+import { SMTPHOST, SMTPPORT, SMTPUSER, SMTPPASSWORD } from '$env/static/private';
 
 import type { Actions, PageServerLoad } from './$types.js';
 
@@ -72,12 +72,12 @@ export const actions: Actions = {
 };
 
 const transporter = nodemailer.createTransport({
-	host: HOST,
-	port: PORT,
-	secure: PORT === "465" ? true: false, // true for 465, false for others
+	host: SMTPHOST,
+	port: SMTPPORT,
+	secure: SMTPPORT === "465" ? true: false, // true for 465, false for others
 	auth: {
-		user: USER,
-		pass: PASSWORD
+		user: SMTPUSER,
+		pass: SMTPPASSWORD
 	}
 });
 
@@ -136,7 +136,7 @@ async function sendEmails(data: {
 
 	// Send confirmation email to the user
 	await transporter.sendMail({
-		from: `"Syaala" <${USER}>`,
+		from: `"Syaala" <${SMTPUSER}>`,
 		to: email,
 		subject: "Thank you for contacting Syaala!",
 		html: htmlContent
@@ -144,7 +144,7 @@ async function sendEmails(data: {
 
 	// Send notification email to the admin
 	await transporter.sendMail({
-		from: `"Syaala Form" <${USER}>`,
+		from: `"Syaala Form" <${SMTPUSER}>`,
 		to: "nahusenaytadesse75@gmail.com",
 		subject: "New AI Deployment Request Received",
 		html: adminHtml
