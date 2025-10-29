@@ -14,7 +14,7 @@ isolate  ring-white/5 ring-1 bg-opacity-white-10 bg-white/0 shadow-sm shadow-whi
     </p>
     <h2 class="lg:text-center text-start">{@html title}</h2>
     <div class="flex lg:flex-row flex-col gap-2 justify-center items-center w-full">
-        <Button href={href1} target='_blank' class="{btn} lg:w-auto w-full">
+        <Button href={href1} class="{btn} lg:w-auto w-full">
          {btn1}
         </Button>
         {#if btn2 !== ''}

@@ -145,7 +145,7 @@ async function sendEmails(data: {
 	// Send notification email to the admin
 	await transporter.sendMail({
 		from: `"Syaala Form" <${SMTPUSER}>`,
-		to: "nahusenaytadesse75@gmail.com",
+		to: SMTPUSER, // Admin email
 		subject: "New AI Deployment Request Received",
 		html: adminHtml
 	});

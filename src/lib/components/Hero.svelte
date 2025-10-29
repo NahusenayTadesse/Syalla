@@ -35,7 +35,7 @@
                 Deploy Your First Model
             </Button>
 
-            <Button variant="outline" class="{btn} lg:w-auto w-full text-gray-1">
+            <Button variant="outline" href="/colocation/#request" class="{btn} lg:w-auto w-full text-gray-1">
                 Power with Your Own GPUs
             </Button>
 
